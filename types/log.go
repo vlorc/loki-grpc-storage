@@ -17,7 +17,7 @@ func Level(v string) zapcore.Level {
 
 func __zapLevel(v string) zapcore.Level {
 	for i := range __level {
-		if __level[i] == string(v) {
+		if __level[i] == v {
 			return zapcore.Level(i - 1)
 		}
 	}

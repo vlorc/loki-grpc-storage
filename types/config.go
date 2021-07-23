@@ -25,8 +25,10 @@ type LogConfig struct {
 }
 
 type ChunkConfig struct {
-	Level string `flag:"level,debug,chunk level"`
-	Mode  string `flag:"mode,prod,chunk mode"`
+	Level    string `flag:"level,debug,chunk level"`
+	Mode     string `flag:"mode,prod,chunk mode"`
+	Min      int    `flag:"min,12,chunk minimum"`
+	Parallel int    `flag:"parallel,0,chunk parallel"`
 }
 
 type StoreConfig struct {

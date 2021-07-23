@@ -56,5 +56,8 @@ func (s *Server) Stop() {
 }
 
 func (s *Server) register(ss *grpc.Server) {
-	api.RegisterGrpcStoreServer(ss, service.NewStoreService(s.log, types.Level(s.config.Chunk.Level), driver.New(s.log, &s.config.Store)))
+
+	store := service.NewStoreService(s.log, &s.config.Chunk, driver.New(s.log, &s.config.Store))
+
+	api.RegisterGrpcStoreServer(ss, store)
 }
